@@ -18,31 +18,46 @@ import { FiLink } from "react-icons/fi";
 import { BsTwitter } from "react-icons/bs";
 import UserInfo from "../../../components/UserInfo";
 import ReposItem from "../../../components/ReposItem";
+import {
+  Previous,
+  Paginator,
+  PageGroup,
+  Page,
+  Next,
+  generatePages,
+} from "chakra-paginator";
 
 const Profile = ({ user, repos }: { user: User; repos: any }) => {
   return (
-    <Box marginX={{ sm: 0, md: 0, lg: 80 }}>
+    <Box marginX={{ sm: 4, md: 6, lg: 32 }}>
       <Meta title={`${user.login}(${user.name})`} />
       <Grid
         padding={{ xg: 8, sm: 1, md: 1 }}
         paddingY={8}
         gap={6}
         h={"200px"}
-        gridTemplateColumns={"296px 1fr"}
+        gridTemplateColumns={{ sm: "100%", md: "296px 1fr" }}
       >
         <GridItem>
-          <Image
-            width={296}
-            height={296}
-            borderRadius={"50%"}
-            alt={"avatar"}
-            src={user.avatar_url}
-          />
-          <Box paddingY={4}>
-            <Text fontWeight={"bold"} fontSize={"2xl"}>
-              {user.name}
-            </Text>
-            <Text fontSize={"xl"}>{user.login}</Text>
+          <Box
+            display={"flex"}
+            flexDirection={{ sm: "row", md: "column" }}
+            alignItems={{ sm: "center", md: "unset" }}
+          >
+            <Image
+              width={{ sm: 74, md: 296 }}
+              height={{ sm: 74, md: 296 }}
+              borderRadius={"50%"}
+              alt={"avatar"}
+              src={user.avatar_url}
+              marginRight={{ sm: 4, md: 0 }}
+            />
+            <Box paddingY={4}>
+              <Text fontWeight={"bold"} fontSize={"2xl"}>
+                {user.name}
+              </Text>
+              <Text fontSize={"xl"}>{user.login}</Text>
+            </Box>
           </Box>
           <Text>{user.bio}</Text>
           <Box
@@ -69,7 +84,7 @@ const Profile = ({ user, repos }: { user: User; repos: any }) => {
           <Heading marginBottom={4} size={"md"}>
             Repositories
           </Heading>
-          <Grid templateColumns={"repeat(2, 1fr)"} gap={4}>
+          <Grid templateColumns={{ sm: "100%", md: "repeat(2, 1fr)" }} gap={4}>
             {repos.map((item: any) => (
               <GridItem key={item.id}>
                 <ReposItem
