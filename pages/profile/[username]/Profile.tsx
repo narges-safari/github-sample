@@ -13,19 +13,11 @@ import {
 } from "@chakra-ui/react";
 import { IoPeopleOutline } from "react-icons/io5";
 import { CgOrganisation } from "react-icons/cg";
-import { GoLocation, GoRepo } from "react-icons/go";
+import { GoLocation } from "react-icons/go";
 import { FiLink } from "react-icons/fi";
 import { BsTwitter } from "react-icons/bs";
 import UserInfo from "../../../components/UserInfo";
 import ReposItem from "../../../components/ReposItem";
-import {
-  Previous,
-  Paginator,
-  PageGroup,
-  Page,
-  Next,
-  generatePages,
-} from "chakra-paginator";
 
 const Profile = ({ user, repos }: { user: User; repos: any }) => {
   return (
