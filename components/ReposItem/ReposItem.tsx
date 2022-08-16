@@ -2,38 +2,15 @@ import { Box, Icon, Tag, Text } from "@chakra-ui/react";
 import { GoRepo } from "react-icons/go";
 import { IReposItemProps } from "./ReposItem.types";
 import { NextPage } from "next";
+import { useReposItem } from "./ReposItem.biz";
 
 const ReposItem: NextPage<IReposItemProps> = ({
   name,
-  description,
   language,
   isPrivate,
+  description,
 }) => {
-  const languageColorRenderer = (language: string) => {
-    switch (language) {
-      case "JavaScript":
-        return "#f1e05a";
-      case "TypeScript":
-        return "#3178c6";
-      case "HTML":
-        return "#e34c26";
-      case "CSS":
-        return "#563d7c";
-      case "Ruby":
-        return "#701516";
-      case "Python":
-        return "#3572A5";
-      case "C":
-        return "#555555";
-      case "Emacs Lisp":
-        return "#c065db";
-      case "CoffeeScript":
-        return "#244776";
-      case "Go":
-        return "#00ADD8";
-    }
-  };
-
+  const { languageColorRenderer } = useReposItem();
   return (
     <Box
       marginBottom={4}
