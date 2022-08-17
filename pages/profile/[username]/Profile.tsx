@@ -1,4 +1,4 @@
-import type { User } from "./Profile.types";
+import type { Repos, User } from "./Profile.types";
 import React from "react";
 import Meta from "../../../utilities/Meta";
 import {
@@ -19,7 +19,7 @@ import { BsTwitter } from "react-icons/bs";
 import UserInfo from "../../../components/UserInfo";
 import ReposItem from "../../../components/ReposItem";
 
-const Profile = ({ user, repos }: { user: User; repos: any }) => {
+const Profile = ({ user, repos }: { user: User; repos: Repos[] }) => {
   return (
     <Box marginX={{ sm: 4, md: 6, lg: 32, "2xl": 80 }}>
       <Meta title={`${user.login}(${user.name})`} />
@@ -77,7 +77,7 @@ const Profile = ({ user, repos }: { user: User; repos: any }) => {
             Repositories
           </Heading>
           <Grid templateColumns={{ sm: "100%", md: "repeat(2, 1fr)" }} gap={4}>
-            {repos.map((item: any) => (
+            {repos.map((item: Repos) => (
               <GridItem key={item.id}>
                 <ReposItem
                   name={item.name}
