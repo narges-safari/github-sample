@@ -21,28 +21,28 @@ import ReposItem from "../../../components/ReposItem";
 
 const Profile = ({ user, repos }: { user: User; repos: Repos[] }) => {
   return (
-    <Box marginX={{ sm: 4, md: 6, lg: 32, "2xl": 80 }}>
+    <Box marginX={{ base: 4, sm: 4, md: 6, lg: 32, "2xl": 80 }}>
       <Meta title={`${user.login}(${user.name})`} />
       <Grid
         padding={{ xg: 8, sm: 1, md: 1 }}
         paddingY={8}
         gap={6}
         h={"200px"}
-        gridTemplateColumns={{ sm: "100%", md: "296px 1fr" }}
+        gridTemplateColumns={{ base: "100%", sm: "100%", md: "296px 1fr" }}
       >
         <GridItem>
           <Box
             display={"flex"}
             flexDirection={{ sm: "row", md: "column" }}
-            alignItems={{ sm: "center", md: "unset" }}
+            alignItems={{ base: "center", sm: "center", md: "unset" }}
           >
             <Image
-              width={{ sm: 74, md: 296 }}
-              height={{ sm: 74, md: 296 }}
+              width={{ base: 74, sm: 74, md: 296 }}
+              height={{ base: 74, sm: 74, md: 296 }}
               borderRadius={"50%"}
               alt={"avatar"}
               src={user.avatar_url}
-              marginRight={{ sm: 4, md: 0 }}
+              marginRight={{ base: 4, sm: 4, md: 0 }}
             />
             <Box paddingY={4}>
               <Text fontWeight={"bold"} fontSize={"2xl"}>
