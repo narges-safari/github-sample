@@ -21,7 +21,7 @@ import ReposItem from "../../../components/ReposItem";
 
 const Profile = ({ user, repos }: { user: User; repos: any }) => {
   return (
-    <Box marginX={{ sm: 4, md: 6, lg: 32 }}>
+    <Box marginX={{ sm: 4, md: 6, lg: 32, "2xl": 80 }}>
       <Meta title={`${user.login}(${user.name})`} />
       <Grid
         padding={{ xg: 8, sm: 1, md: 1 }}
