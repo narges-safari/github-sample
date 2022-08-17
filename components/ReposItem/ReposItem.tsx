@@ -13,16 +13,15 @@ const ReposItem: NextPage<IReposItemProps> = ({
   const { languageColorRenderer } = useReposItem();
   return (
     <Box
-      marginBottom={4}
-      height={125}
+      marginBottom={{ md: 4 }}
+      height={{ sm: "auto", md: 161, lg: 125 }}
       padding={4}
-      paddingBottom={0}
       borderRadius={6}
       border={"1px solid #d0d7de"}
     >
       <Box display={"flex"} alignItems={"center"} flexDirection={"row"}>
         <Icon as={GoRepo} />
-        <Text color={"#0969da"} fontWeight={600} marginX={2}>
+        <Text fontSize={"sm"} color={"#0969da"} fontWeight={600} marginX={2}>
           {name}
         </Text>
         <Tag size={"sm"} variant={"outline"}>
