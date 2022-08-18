@@ -39,4 +39,5 @@ export interface Repos {
   private: boolean;
   language: string;
   description: string;
+  created_at: string;
 }

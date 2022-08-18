@@ -77,16 +77,22 @@ const Profile = ({ user, repos }: { user: User; repos: Repos[] }) => {
             Repositories
           </Heading>
           <Grid templateColumns={{ sm: "100%", md: "repeat(2, 1fr)" }} gap={4}>
-            {repos.map((item: Repos) => (
-              <GridItem key={item.id}>
-                <ReposItem
-                  name={item.name}
-                  description={item.description}
-                  language={item.language}
-                  isPrivate={item.private}
-                />
-              </GridItem>
-            ))}
+            {repos
+              .sort(
+                (a: Repos, b: Repos) =>
+                  (new Date(b.created_at) as unknown as number) -
+                  (new Date(a.created_at) as unknown as number)
+              )
+              .map((item: Repos) => (
+                <GridItem key={item.id}>
+                  <ReposItem
+                    name={item.name}
+                    description={item.description}
+                    language={item.language}
+                    isPrivate={item.private}
+                  />
+                </GridItem>
+              ))}
           </Grid>
         </GridItem>
       </Grid>
