@@ -4,12 +4,11 @@ import Meta from "../../../utilities/Meta";
 import {
   Box,
   Grid,
-  GridItem,
-  Heading,
   Icon,
-  Image,
-  Tag,
   Text,
+  Image,
+  Heading,
+  GridItem,
 } from "@chakra-ui/react";
 import { IoPeopleOutline } from "react-icons/io5";
 import { CgOrganisation } from "react-icons/cg";
@@ -17,32 +16,32 @@ import { GoLocation } from "react-icons/go";
 import { FiLink } from "react-icons/fi";
 import { BsTwitter } from "react-icons/bs";
 import UserInfo from "../../../components/UserInfo";
-import ReposItem from "../../../components/ReposItem";
+import Repositories from "./Repositories";
 
-const Profile = ({ user, repos }: { user: User; repos: any }) => {
+const Profile = ({ user }: { user: User }) => {
   return (
-    <Box marginX={{ sm: 4, md: 6, lg: 32 }}>
+    <Box marginX={{ base: 4, sm: 4, md: 6, lg: 32, "2xl": 80 }}>
       <Meta title={`${user.login}(${user.name})`} />
       <Grid
-        padding={{ xg: 8, sm: 1, md: 1 }}
-        paddingY={8}
         gap={6}
         h={"200px"}
-        gridTemplateColumns={{ sm: "100%", md: "296px 1fr" }}
+        paddingY={8}
+        padding={{ xg: 8, sm: 1, md: 1 }}
+        gridTemplateColumns={{ base: "100%", sm: "100%", md: "296px 1fr" }}
       >
         <GridItem>
           <Box
             display={"flex"}
             flexDirection={{ sm: "row", md: "column" }}
-            alignItems={{ sm: "center", md: "unset" }}
+            alignItems={{ base: "center", sm: "center", md: "unset" }}
           >
             <Image
-              width={{ sm: 74, md: 296 }}
-              height={{ sm: 74, md: 296 }}
-              borderRadius={"50%"}
               alt={"avatar"}
+              borderRadius={"50%"}
               src={user.avatar_url}
-              marginRight={{ sm: 4, md: 0 }}
+              width={{ base: 74, sm: 74, md: 296 }}
+              height={{ base: 74, sm: 74, md: 296 }}
+              marginRight={{ base: 4, sm: 4, md: 0 }}
             />
             <Box paddingY={4}>
               <Text fontWeight={"bold"} fontSize={"2xl"}>
@@ -77,16 +76,10 @@ const Profile = ({ user, repos }: { user: User; repos: any }) => {
             Repositories
           </Heading>
           <Grid templateColumns={{ sm: "100%", md: "repeat(2, 1fr)" }} gap={4}>
-            {repos.map((item: any) => (
-              <GridItem key={item.id}>
-                <ReposItem
-                  name={item.name}
-                  description={item.description}
-                  language={item.language}
-                  isPrivate={item.private}
-                />
-              </GridItem>
-            ))}
+            <Repositories
+              reposUrl={user.repos_url}
+              publicRepos={user.public_repos}
+            />
           </Grid>
         </GridItem>
       </Grid>

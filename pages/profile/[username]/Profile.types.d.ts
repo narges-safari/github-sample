@@ -32,3 +32,12 @@ export interface User {
   updated_at: string;
   url: string;
 }
+
+export interface Repos {
+  id: string;
+  name: string;
+  private: boolean;
+  language: string;
+  description: string;
+  created_at: string;
+}
